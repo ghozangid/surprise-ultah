@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Birthday Cengakuuu!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        /* Tema Ungu Pastel */
+        body { 
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); 
+            font-family: 'Poppins', sans-serif; 
+            overflow: hidden; 
+        }
+        
+        /* OVERLAY PEMBUKA - Warna Ungu Gelap */
+        #overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #6a11cb; 
+            background: linear-gradient(to right, #2575fc, #6a11cb);
+            z-index: 100; display: flex;
+            justify-content: center; align-items: center; text-align: center;
+        }
+        
+        .btn-start, .btn-nav {
+            padding: 12px 25px; font-size: 1rem; background: #9d4edd;
+            color: white; border: none; border-radius: 50px; font-weight: bold;
+            box-shadow: 0 5px 15px rgba(157, 78, 221, 0.4); cursor: pointer; transition: transform 0.2s;
+            margin: 10px 5px;
+        }
+        .btn-start:active, .btn-nav:active { transform: scale(0.95); }
+
+        /* PENGATURAN SLIDE */
+        .slide {
+            display: none; 
+            flex-direction: column; align-items: center; justify-content: center; 
+            height: 100vh; text-align: center; padding: 20px;
+            animation: fadeIn 0.5s ease-out;
+        }
+        .slide.active { display: flex; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gif-img { 
+            width: 220px; 
+            height: 220px; 
+            object-fit: contain; 
+            margin-bottom: 20px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .card { 
+            background: rgba(255, 255, 255, 0.95); 
+            padding: 25px; border-radius: 25px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
+            max-width: 400px; width: 95%;
+        }
+        
+        h1 { font-family: 'Pacifico', cursive; color: #7b2cbf; font-size: 2rem; margin-bottom: 15px; }
+        p { color: #3c096c; line-height: 1.6; font-size: 1rem; margin-bottom: 20px;}
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- OVERLAY (Syarat Safari) -->
+    <div id="overlay">
+        <div>
+            <h2 style="font-family: 'Pacifico'; color: white; margin-bottom: 20px; font-size: 2rem;">Ada Kado Spesial! 🎁</h2>
+            <button class="btn-start" onclick="mulaiWeb()">Buka Sekarang</button>
+        </div>
+    </div>
+
+    <!-- AUDIO (Mulai di detik 30 menggunakan hashtag #t=30) -->
+    <audio id="laguUltah" loop>
+        <source src="music.mp3#t=30" type="audio/mpeg">
+    </audio>
+
+    <!-- SLIDE 1 -->
+    <div id="slide1" class="slide">
+        <img src="kicau.gif" alt="Kicau" class="gif-img">
+        <div class="card">
+            <h1>Happy Birthday! 🎉</h1>
+            <p>Selamat ulang tahun cengakuuu! Semoga harimu penuh kebahagiaan, kesehatan, dan semua impianmu tercapai di tahun ini dan setelussss nyaa ❤️</p>
+            <div class="nav-buttons">
+                <button class="btn-nav" onclick="keSlide(2)">Lanjut ➡️</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div id="slide2" class="slide">
+        <img src="makan.gif" alt="Makan" class="gif-img">
+        <div class="card">
+            <h1>First Meet ✨</h1>
+            <p>seneng banget pertama kita ketemu di Pouter Coffee itu, ga nyangka bisa ketemu untuk pertama kalinya. disitu juga kita dah banyak ngobrol sampe ga kerasa waktu cepet banget huhu ☕</p>
+            <div class="nav-buttons">
+                <button class="btn-nav" onclick="keSlide(1)">⬅️ Back</button>
+                <button class="btn-nav" onclick="keSlide(3)">Lanjut ➡️</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div id="slide3" class="slide">
+        <img src="genit.gif" alt="Genit" class="gif-img">
+        <div class="card">
+            <h1>Kesantet 🫣</h1>
+            <p>setelah ketemu pertama itu, aku kek kesantet deh. kek kepikiran telusss campe lumah ituuu. kek buat bobo aja cucah cekaliiii hehehe 🤭</p>
+            <div class="nav-buttons">
+                <button class="btn-nav" onclick="keSlide(2)">⬅️ Back</button>
+                <button class="btn-nav" onclick="keSlide(4)">Lanjut ➡️</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div id="slide4" class="slide">
+        <img src="marah.gif" alt="Marah" class="gif-img">
+        <div class="card">
+            <h1>Ga Bisa Bobo 😫</h1>
+            <p>kek aku paksain merem sampe lamaaa banget ga melem melem. eh sampe subuh kayaknya deh ini santetnya. rasanya tuh kek kepikiraan terus.</p>
+            <div class="nav-buttons">
+                <button class="btn-nav" onclick="keSlide(3)">⬅️ Back</button>
+                <button class="btn-nav" onclick="keSlide(5)">Lanjut ➡️</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5 -->
+    <div id="slide5" class="slide">
+        <img src="ngambek.gif" alt="Ngambek" class="gif-img">
+        <div class="card">
+            <h1>Kangen Terus 🥺</h1>
+            <p>kayaknya sampe sekarang deh santet itu makin parah, bawaanya tu anenddd teyuss. rasanya pengen bareng teyusss 💕</p>
+            <div class="nav-buttons">
+                <button class="btn-nav" onclick="keSlide(4)">⬅️ Back</button>
+                <button class="btn-nav" onclick="keSlide(6)">Lanjut ➡️</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6 -->
+    <div id="slide6" class="slide">
+        <img src="joget.gif" alt="Joget" class="gif-img">
+        <div class="card">
+            <h1>Harapanku 👩‍❤️‍👨</h1>
+            <p>untuk tahun ini semoga kita bisa selama lama lamaa lamaaa banget deh pokoknyaaa love you cengakuuuuu 💖</p>
+            <div class="nav-buttons">
+                <button class="btn-nav" onclick="keSlide(5)">⬅️ Back</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        // Set volume awal (opsional)
+        document.getElementById('laguUltah').volume = 0.5; // 50% volume
+
+        function ledakkanConfetti() {
+            confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 }, colors: ['#9d4edd', '#c77dff', '#e0aaff', '#ffffff'] });
+        }
+
+        function mulaiWeb() {
+            document.getElementById('overlay').style.display = 'none'; 
+            document.getElementById('slide1').classList.add('active'); 
+            
+            // Logika untuk Safari yang terkadang bandel dengan #t=30
+            var audio = document.getElementById('laguUltah');
+            audio.currentTime = 30; // Paksa ke detik 30 menggunakan JavaScript
+            audio.play(); 
+            
+            ledakkanConfetti();
+        }
+
+        function keSlide(nomorSlide) {
+            let semuaSlide = document.querySelectorAll('.slide');
+            semuaSlide.forEach(slide => slide.classList.remove('active'));
+
+            document.getElementById('slide' + nomorSlide).classList.add('active');
+            
+            // Confetti meledak di slide 1 dan slide terakhir (6)
+            if(nomorSlide === 1 || nomorSlide === 6) {
+                ledakkanConfetti(); 
+            }
+        }
+    </script>
+</body>
+</html>
